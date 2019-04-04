@@ -10,13 +10,15 @@ import Foundation
 
 let accessoryController = ESAccessoryController()
 //var accessory = EAAccessory()
-var connected = false
 
 @objc(BluetoothManager)
 class Bluetooth: NSObject {
   
   override init() {
   }
+  
+  @objc
+  static var connected = false
 
   @objc
   func startSession() {
@@ -43,27 +45,28 @@ class Bluetooth: NSObject {
   }
   
   @objc
-  func connectAccessory() {
-    print("NOT REQUIRED")
-  }
-  
-  @objc
   func sendStringToAccessory() {
-    print("In send string to accessory")
+    print("In send string to accessory - NOT IMPLEMENTED")
   }
   
   @objc
   func checkAccessory() {
     if(accessoryController.connectedAccessory != nil)
     {
-      connected = true;
+      Bluetooth.connected = true;
     } else {
-      connected = false;
+      Bluetooth.connected = false;
     }
     print("In check accessory")
-    print(connected)
-    //print(accessory)
+    print(Bluetooth.connected)
   }
+  
+  @objc
+  func startTest() {
+    accessoryController.startTest(nil)
+    print("In start test")
+  }
+  
   
   @objc
   static func requiresMainQueueSetup() -> Bool {

@@ -39,6 +39,11 @@ export default class App extends Component<Props> {
     NativeModules.BluetoothManager.checkAccessory();
   }
 
+  startTest = () => {
+    NativeModules.BluetoothManager.startTest();
+  }
+
+
 
   render() {
     return (
@@ -65,11 +70,6 @@ export default class App extends Component<Props> {
           color="#FF6347"
         />
         <Button
-          onPress={this.connectAccessory}
-          title="Connect Accessory"
-          color="#FF6347"
-        />
-        <Button
           onPress={this.sendStringToAccessory}
           title="Send string to Accessory"
           color="#FF6347"
@@ -77,6 +77,11 @@ export default class App extends Component<Props> {
         <Button
           onPress={this.checkAccessory}
           title="Check Accessory"
+          color="#FF6347"
+        />
+        <Button
+          onPress={this.startTest}
+          title="Start Test"
           color="#FF6347"
         />
       </View>

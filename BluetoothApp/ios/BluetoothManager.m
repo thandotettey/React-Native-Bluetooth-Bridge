@@ -17,4 +17,5 @@ RCT_EXTERN_METHOD(stopWaitingForConnection)
 RCT_EXTERN_METHOD(connectAccessory)
 RCT_EXTERN_METHOD(checkAccessory)
 RCT_EXTERN_METHOD(sendStringToAccessory)
+RCT_EXTERN_METHOD(startTest)
 @end
