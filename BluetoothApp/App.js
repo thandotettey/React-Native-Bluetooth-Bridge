@@ -7,23 +7,78 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View} from 'react-native';
+import {Platform, StyleSheet, Text, View, NativeModules, Button} from 'react-native';
 
-const instructions = Platform.select({
-  ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
-  android:
-    'Double tap R on your keyboard to reload,\n' +
-    'Shake or press menu button for dev menu',
-});
-
-type Props = {};
 export default class App extends Component<Props> {
+
+  startSession = () => {
+    NativeModules.BluetoothManager.startSession();
+  }
+
+  endSession = () => {
+    NativeModules.BluetoothManager.endSession();
+  }
+
+  startWaitingForConnection = () => {
+    NativeModules.BluetoothManager.startWaitingForConnection();
+  }
+
+  stopWaitingForConnection = () => {
+    NativeModules.BluetoothManager.stopWaitingForConnection();
+  }
+
+  connectAccessory = () => {
+    NativeModules.BluetoothManager.connectAccessory();
+  }
+
+  sendStringToAccessory = () => {
+    NativeModules.BluetoothManager.sendStringToAccessory();
+  }
+
+  checkAccessory = () => {
+    NativeModules.BluetoothManager.checkAccessory();
+  }
+
+
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
+        <Text style={styles.welcome}>Welcome to the Bluetooth App!</Text>
+        <Button
+          onPress={this.startSession}
+          title="Start Session"
+          color="#FF6347"
+        />
+        <Button
+          onPress={this.endSession}
+          title="End Session"
+          color="#FF6347"
+        />
+        <Button
+          onPress={this.startWaitingForConnection}
+          title="Start Waiting for Connection"
+          color="#FF6347"
+        />
+        <Button
+          onPress={this.stopWaitingForConnection}
+          title="Stop Waiting for Connection"
+          color="#FF6347"
+        />
+        <Button
+          onPress={this.connectAccessory}
+          title="Connect Accessory"
+          color="#FF6347"
+        />
+        <Button
+          onPress={this.sendStringToAccessory}
+          title="Send string to Accessory"
+          color="#FF6347"
+        />
+        <Button
+          onPress={this.checkAccessory}
+          title="Check Accessory"
+          color="#FF6347"
+        />
       </View>
     );
   }
